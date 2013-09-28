@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <sitemanifest>
-  <IisApp path="C:\Users\slobodan\Documents\Visual Studio 2012\Projects\PdfStamper\PdfStamper\obj\Debug\Package\PackageTmp" managedRuntimeVersion="v4.0" />
+  <IisApp path="C:\Users\slobodan\Documents\Visual Studio 2012\Projects\PdfStamper\PdfStamper\obj\Debug\Package\PackageTmp" />
   <setAcl path="C:\Users\slobodan\Documents\Visual Studio 2012\Projects\PdfStamper\PdfStamper\obj\Debug\Package\PackageTmp" setAclResourceType="Directory" />
   <setAcl path="C:\Users\slobodan\Documents\Visual Studio 2012\Projects\PdfStamper\PdfStamper\obj\Debug\Package\PackageTmp" setAclUser="anonymousAuthenticationUser" setAclResourceType="Directory" />
 </sitemanifest>

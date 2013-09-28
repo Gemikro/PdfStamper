@@ -4,11 +4,11 @@ using System.Data;
 using System.IO;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
+//using System.Threading.Tasks;
 using iTextSharp.text.pdf;
 using Pdf.Interfaces;
 using System.Linq;
-using Newtonsoft.Json;
+//using Newtonsoft.Json;
 using Utilities;
 using iTextSharp.text;
 

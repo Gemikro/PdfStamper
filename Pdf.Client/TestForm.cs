@@ -8,7 +8,7 @@ using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
+//using System.Threading.Tasks;
 using System.Windows.Forms;
 using Newtonsoft.Json;
 using Pdf.Client.ProcessXmlHandler;
@@ -30,7 +30,7 @@ namespace Pdf.Client
 
         private void button1_Click(object sender, EventArgs e) {
             try {
-                ProcessXmlHandlerSoapClient client = new ProcessXmlHandlerSoapClient();
+                ProcessXmlHandler.ProcessXmlHandler client = new ProcessXmlHandler.ProcessXmlHandler();
                 pdf_stamper_request request = new pdf_stamper_request();
 
                 request.pdf_template_list = new template[] { Interfaces.template.Obrazac1, Interfaces.template.Obrazac2};
@@ -58,7 +58,7 @@ namespace Pdf.Client
         }
         private void button2_Click(object sender, EventArgs e) {
             try {
-                ProcessXmlHandlerSoapClient client = new ProcessXmlHandlerSoapClient();
+                ProcessXmlHandler.ProcessXmlHandler client = new ProcessXmlHandler.ProcessXmlHandler();
                 pdf_stamper_request request = new pdf_stamper_request();
                 request.pdf_template_list = new template[] {Interfaces.template.Obrazac1};
 

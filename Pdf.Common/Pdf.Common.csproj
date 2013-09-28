@@ -9,8 +9,9 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Pdf.Common</RootNamespace>
     <AssemblyName>Pdf.Common</AssemblyName>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -35,19 +36,20 @@
       <HintPath>Binaries\itextsharp.dll</HintPath>
     </Reference>
     <Reference Include="Newtonsoft.Json">
-      <HintPath>Binaries\Json50r6\Bin\Net45\Newtonsoft.Json.dll</HintPath>
+      <HintPath>..\PdfStamper\Binaries\Json50r6\Bin\Net35\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DataTableConverter.cs" />
+    <Compile Include="DataTableConverter.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Logging.cs" />
     <Compile Include="PdfFormEditor.cs" />
     <Compile Include="PdfMerge.cs">

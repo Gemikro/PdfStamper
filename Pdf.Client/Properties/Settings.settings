@@ -10,5 +10,8 @@
 &lt;/SerializableConnectionString&gt;</DesignTimeValue>
       <Value Profile="(Default)">Data Source=HP-SERVER\SQL2008;Initial Catalog=leas_prod;Integrated Security=True</Value>
     </Setting>
+    <Setting Name="Pdf_Client_ProcessXmlHandler_ProcessXmlHandler" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://localhost:61211/ProcessXmlHandler.asmx</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

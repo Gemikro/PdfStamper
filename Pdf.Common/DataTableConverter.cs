@@ -138,12 +138,13 @@ namespace Serialization
                                     column.DefaultValue = defaultValue5;
                                 }
                                 break;
-                            case "System.Guid":
-                                Guid defaultValue6 = default(Guid);
-                                if (Guid.TryParse(token.ToString(), out defaultValue6)) {
-                                    column.DefaultValue = defaultValue6;
-                                }
-                                break;
+                            //case "System.Guid":
+                            //    Guid defaultValue6 = default(Guid);
+                                
+                            //    if (Guid.TryParse(token.ToString(), out defaultValue6)) {
+                            //        column.DefaultValue = defaultValue6;
+                            //    }
+                            //    break;
                             case "System.Int16":
                                 Int16 defaultValue7 = default(Int16);
                                 if (Int16.TryParse(token.ToString(), out defaultValue7)) {
