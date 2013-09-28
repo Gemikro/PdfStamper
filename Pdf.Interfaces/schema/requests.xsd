@@ -1,0 +1,185 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<xs:schema id="requests" targetNamespace="urn:pdfstamper:handlers" elementFormDefault="qualified"
+	xmlns:gmi="urn:gmi:nova:develop" gmi:namespace="PdfStamper.Handlers" gmi:schema_file="requests.xsd"
+	xmlns="urn:pdfstamper:handlers" xmlns:mstns="urn:pdfstamper:handlers" xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	xmlns:msprop="urn:schemas-microsoft-com:xml-msprop">
+	
+	
+<!-- ************************************************************************** -->
+  
+  <xs:simpleType name="template">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Obrazac1"/>
+      <xs:enumeration value="Obrazac2"/>
+      <xs:enumeration value="Obrazac3"/>
+      <xs:enumeration value="Obrazac4"/>
+      <xs:enumeration value="Obrazac5"/>
+      <xs:enumeration value="Obrazac6"/>
+      <xs:enumeration value="Obrazac7"/>
+      <xs:enumeration value="Obrazac8"/>
+      <xs:enumeration value="Obrazac9"/>
+      <xs:enumeration value="Obrazac10"/>
+      <xs:enumeration value="Obrazac11"/>
+      <xs:enumeration value="Obrazac12"/>
+      <xs:enumeration value="Obrazac13"/>
+      <xs:enumeration value="Obrazac14"/>
+      <xs:enumeration value="Obrazac15"/>
+      <xs:enumeration value="Obrazac16"/>
+      <xs:enumeration value="Obrazac17"/>
+      <xs:enumeration value="Obrazac18"/>
+      <xs:enumeration value="Obrazac19"/>
+      <xs:enumeration value="Obrazac20"/>
+      <xs:enumeration value="Obrazac21"/>
+      <xs:enumeration value="Obrazac22"/>
+      <xs:enumeration value="Obrazac23"/>
+      <xs:enumeration value="Obrazac24"/>
+      <xs:enumeration value="Obrazac25"/>
+      <xs:enumeration value="Obrazac26"/>
+      <xs:enumeration value="Obrazac27"/>
+      <xs:enumeration value="Obrazac28"/>
+      <xs:enumeration value="Obrazac29"/>
+      <xs:enumeration value="Obrazac30"/>
+      <xs:enumeration value="Merged"/>
+    </xs:restriction>  
+  </xs:simpleType>
+
+  <xs:simpleType name="data_field_type">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Check Box"/>
+      <xs:enumeration value="Text"/>
+      <xs:enumeration value="Radio Button"/>      
+    </xs:restriction>
+  </xs:simpleType>
+  
+  <xs:complexType name="mapping_type">
+    <xs:sequence>
+      <xs:element name="column_name" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>Column name</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="data_field" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>Data field inside editable pdf form.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="field_type" type="data_field_type">
+        <xs:annotation>
+          <xs:documentation>Data field inside editable pdf form.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+
+  <xs:complexType name="mapping_item_type">
+    <xs:sequence>
+      <xs:element name="pdf_template" type="template">
+        <xs:annotation>
+          <xs:documentation>Pdf data template to fill and flatten.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="file_path" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>File path for original Pdf editable form.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:sequence minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="mapping" type="mapping_type">
+          <xs:annotation>
+            <xs:documentation>Column to data field mapping.</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+      </xs:sequence>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="response_item_type">
+    <xs:sequence>
+        <xs:element name="data" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Base 64 encoded Pdf form.</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="pdf_template" type="template">
+          <xs:annotation>
+            <xs:documentation>Template that was used for rendering output</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+<!-- ************************************************************************** -->
+  
+  <xs:element name="pdf_stamper_request">
+  <xs:annotation>
+    <xs:documentation>Request to fill editable pdf form</xs:documentation>
+  </xs:annotation>
+  <xs:complexType>
+    <xs:sequence>
+      <!--<xs:element name="pdf_template" type="template">
+        <xs:annotation>
+          <xs:documentation>Pdf template to fill</xs:documentation>
+        </xs:annotation>
+      </xs:element>-->
+      <xs:sequence minOccurs="1" maxOccurs="unbounded">
+      <xs:element name="pdf_template_list" type="template">
+        <xs:annotation>
+          <xs:documentation>One or more pdf templates to fill. Resulting file is merged pdf.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      </xs:sequence>
+      <xs:element name="data" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>Data to inject into pdf editable form.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="read_only" type="xs:boolean">
+        <xs:annotation>
+          <xs:documentation>Should we flatten editable form after editing ? .</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="debug_mode" type="xs:boolean">
+        <xs:annotation>
+          <xs:documentation>Is debug mode enabled. Verbose logging and mapping information is written to log.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="merge_output" type="xs:boolean">
+        <xs:annotation>
+          <xs:documentation>If several templates are rendered, should we merge the output or not?</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+</xs:element>
+
+  <xs:element name="pdf_stamper_response">
+    <xs:annotation>
+      <xs:documentation>Response to pdf_stamper_request</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence minOccurs="1" maxOccurs="10">
+        <xs:element name="response_items" type="response_item_type"></xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+<!-- ************************************************************************** -->
+
+  <xs:element name="mappings">
+    <xs:annotation>
+      <xs:documentation>Mappings for data column to pdf data field</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="mapping_item" type="mapping_item_type">
+          <xs:annotation>
+            <xs:documentation>Pdf data template to fill and flatten.</xs:documentation>
+          </xs:annotation>
+        </xs:element>     
+      </xs:sequence>                  
+    </xs:complexType>
+  </xs:element>
+  
+  
+</xs:schema>
+

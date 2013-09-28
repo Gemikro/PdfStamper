@@ -1,0 +1,344 @@
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>urn:pdfstamper:handlers</title>
+<style type="text/css">
+body{ color: #000000; font-family: Verdana,Tahoma, Arial, sans-serif; background-color: #ffffff; text-align: left; font-size: 10pt; }
+td{	font-size: 10pt; border: 1px solid #dcdcdc; margin: 0px; text-align: left; padding: 0px 10px 0px 10px }
+th{	border: 1px solid #dcdcdc; margin: 0px; text-align: left; padding: 0px 10px 0px 10px }
+.noborder{	border: 0px; }
+a{ background-repeat: no-repeat; text-decoration: none}
+a, a:visited{ color: #0000aa; }
+a:hover{ color: #aaaaaa; }
+pre{ font-size: 9pt; }
+h1{ font-family: Verdana, Tahoma, Arial, sans-serif; font-size: 18pt; font-weight: Bold; background-color: #003366; color: #ffffff; padding: 10px;}
+h2{ font-family: Verdana, Tahoma, Arial, sans-serif; font-size: 15pt; font-weight: bold; color: #4F81BD; }
+h3{ font-size: 12pt; font-weight: bold; color: #4F81BD; }
+.small_text{ font-size: 8pt; color: #555555; }
+	</style>
+</head>
+<body>
+<div class="small_text">
+		Globus marine International d.o.o., Dunajska 51, SI-1000 Ljubljana, Slovenia <br><b>Confidential</b></div>
+<h1>
+		Namespace: <code>urn:pdfstamper:handlers</code></h1>
+<p></p>
+<h2>Table of contents</h2>
+	Attributes:
+	<ul></ul>
+	Elements:
+	<ul>
+<li><a href="#element-type-mappings">mappings</a></li>
+<li><a href="#element-type-pdf_stamper_request">pdf_stamper_request</a></li>
+<li><a href="#element-type-pdf_stamper_response">pdf_stamper_response</a></li>
+</ul>
+	Complex types:
+	<ul>
+<li><a href="#type-mapping_item_type">mapping_item_type</a></li>
+<li><a href="#type-mapping_type">mapping_type</a></li>
+<li><a href="#type-response_item_type">response_item_type</a></li>
+</ul>
+	Simple types:
+	<ul>
+<li><a href="#type-data_field_type">data_field_type</a></li>
+<li><a href="#type-template">template</a></li>
+</ul>
+<hr>
+<h2>Attributes</h2>
+<hr>
+<h2>Elements</h2>
+<h3 id="element-type-pdf_stamper_request">
+						Element: pdf_stamper_request</h3>
+    <span>Request to fill editable pdf form</span>
+   
+				<table>
+<tr>
+<th colspan="5">Sequence</th>
+</tr>
+<tr>
+<th>Name</th>
+<th>Type/Ref</th>
+<th>Min</th>
+<th>Max</th>
+<th width="100%">Description</th>
+</tr>
+      
+      
+      <tr>
+<td>pdf_template_list</td>
+<td><code><a href="#type-template">template</a></code></td>
+<td>1</td>
+<td>1</td>
+<td><span>One or more pdf templates to fill. Resulting file is merged pdf.</span> 
+					</td>
+</tr>
+      
+      <tr>
+<td>data</td>
+<td><code>xs:string</code></td>
+<td>1</td>
+<td>1</td>
+<td><span>Data to inject into pdf editable form.</span> 
+					</td>
+</tr>
+      <tr>
+<td>read_only</td>
+<td><code>xs:boolean</code></td>
+<td>1</td>
+<td>1</td>
+<td><span>Should we flatten editable form after editing ? .</span> 
+					</td>
+</tr>
+      <tr>
+<td>debug_mode</td>
+<td><code>xs:boolean</code></td>
+<td>1</td>
+<td>1</td>
+<td><span>Is debug mode enabled. Verbose logging and mapping information is written to log.</span> 
+					</td>
+</tr>
+      <tr>
+<td>merge_output</td>
+<td><code>xs:boolean</code></td>
+<td>1</td>
+<td>1</td>
+<td><span>If several templates are rendered, should we merge the output or not?</span> 
+					</td>
+</tr>
+    </table>
+<h3 id="element-type-pdf_stamper_response">
+						Element: pdf_stamper_response</h3>
+      <span>Response to pdf_stamper_request</span>
+     
+				<table>
+<tr>
+<th colspan="5">Sequence</th>
+</tr>
+<tr>
+<th>Name</th>
+<th>Type/Ref</th>
+<th>Min</th>
+<th>Max</th>
+<th width="100%">Description</th>
+</tr>
+        <tr>
+<td>response_items</td>
+<td><code><a href="#type-response_item_type">response_item_type</a></code></td>
+<td>1</td>
+<td>1</td>
+<td> 
+					</td>
+</tr>
+      </table>
+<h3 id="element-type-mappings">
+						Element: mappings</h3>
+      <span>Mappings for data column to pdf data field</span>
+     
+				<table>
+<tr>
+<th colspan="5">Sequence</th>
+</tr>
+<tr>
+<th>Name</th>
+<th>Type/Ref</th>
+<th>Min</th>
+<th>Max</th>
+<th width="100%">Description</th>
+</tr>
+        <tr>
+<td>mapping_item</td>
+<td><code><a href="#type-mapping_item_type">mapping_item_type</a></code></td>
+<td>1</td>
+<td>1</td>
+<td><span>Pdf data template to fill and flatten.</span> 
+					</td>
+</tr>     
+      </table>
+<hr>
+<h2>Complex types</h2>
+<h3 id="type-mapping_type">
+				Complex type: mapping_type</h3> 
+		<table>
+<tr>
+<th colspan="5">Sequence</th>
+</tr>
+<tr>
+<th>Name</th>
+<th>Type/Ref</th>
+<th>Min</th>
+<th>Max</th>
+<th width="100%">Description</th>
+</tr>
+      <tr>
+<td>column_name</td>
+<td><code>xs:string</code></td>
+<td>1</td>
+<td>1</td>
+<td><span>Column name</span> 
+					</td>
+</tr>
+      <tr>
+<td>data_field</td>
+<td><code>xs:string</code></td>
+<td>1</td>
+<td>1</td>
+<td><span>Data field inside editable pdf form.</span> 
+					</td>
+</tr>
+      <tr>
+<td>field_type</td>
+<td><code><a href="#type-data_field_type">data_field_type</a></code></td>
+<td>1</td>
+<td>1</td>
+<td><span>Data field inside editable pdf form.</span> 
+					</td>
+</tr>
+    </table>
+<h3 id="type-mapping_item_type">
+				Complex type: mapping_item_type</h3> 
+		<table>
+<tr>
+<th colspan="5">Sequence</th>
+</tr>
+<tr>
+<th>Name</th>
+<th>Type/Ref</th>
+<th>Min</th>
+<th>Max</th>
+<th width="100%">Description</th>
+</tr>
+      <tr>
+<td>pdf_template</td>
+<td><code><a href="#type-template">template</a></code></td>
+<td>1</td>
+<td>1</td>
+<td><span>Pdf data template to fill and flatten.</span> 
+					</td>
+</tr>
+      <tr>
+<td>file_path</td>
+<td><code>xs:string</code></td>
+<td>1</td>
+<td>1</td>
+<td><span>File path for original Pdf editable form.</span> 
+					</td>
+</tr>
+      
+        <tr>
+<td>mapping</td>
+<td><code><a href="#type-mapping_type">mapping_type</a></code></td>
+<td>1</td>
+<td>1</td>
+<td><span>Column to data field mapping.</span> 
+					</td>
+</tr>
+      
+    </table>
+<h3 id="type-response_item_type">
+				Complex type: response_item_type</h3> 
+		<table>
+<tr>
+<th colspan="5">Sequence</th>
+</tr>
+<tr>
+<th>Name</th>
+<th>Type/Ref</th>
+<th>Min</th>
+<th>Max</th>
+<th width="100%">Description</th>
+</tr>
+        <tr>
+<td>data</td>
+<td><code>xs:string</code></td>
+<td>1</td>
+<td>1</td>
+<td><span>Base 64 encoded Pdf form.</span> 
+					</td>
+</tr>
+        <tr>
+<td>pdf_template</td>
+<td><code><a href="#type-template">template</a></code></td>
+<td>1</td>
+<td>1</td>
+<td><span>Template that was used for rendering output</span> 
+					</td>
+</tr>
+    </table>
+<hr>
+<h2>Simple types</h2>
+<h3 id="type-template">
+					Simple type: template</h3><b>Description</b>: <br><b>Base type</b>: <code>xs:string</code><br><br><b>Restrictions:</b> Enumeration<ul>
+<li><code><b>Obrazac1</b></code>:
+			</li>
+<li><code><b>Obrazac2</b></code>:
+			</li>
+<li><code><b>Obrazac3</b></code>:
+			</li>
+<li><code><b>Obrazac4</b></code>:
+			</li>
+<li><code><b>Obrazac5</b></code>:
+			</li>
+<li><code><b>Obrazac6</b></code>:
+			</li>
+<li><code><b>Obrazac7</b></code>:
+			</li>
+<li><code><b>Obrazac8</b></code>:
+			</li>
+<li><code><b>Obrazac9</b></code>:
+			</li>
+<li><code><b>Obrazac10</b></code>:
+			</li>
+<li><code><b>Obrazac11</b></code>:
+			</li>
+<li><code><b>Obrazac12</b></code>:
+			</li>
+<li><code><b>Obrazac13</b></code>:
+			</li>
+<li><code><b>Obrazac14</b></code>:
+			</li>
+<li><code><b>Obrazac15</b></code>:
+			</li>
+<li><code><b>Obrazac16</b></code>:
+			</li>
+<li><code><b>Obrazac17</b></code>:
+			</li>
+<li><code><b>Obrazac18</b></code>:
+			</li>
+<li><code><b>Obrazac19</b></code>:
+			</li>
+<li><code><b>Obrazac20</b></code>:
+			</li>
+<li><code><b>Obrazac21</b></code>:
+			</li>
+<li><code><b>Obrazac22</b></code>:
+			</li>
+<li><code><b>Obrazac23</b></code>:
+			</li>
+<li><code><b>Obrazac24</b></code>:
+			</li>
+<li><code><b>Obrazac25</b></code>:
+			</li>
+<li><code><b>Obrazac26</b></code>:
+			</li>
+<li><code><b>Obrazac27</b></code>:
+			</li>
+<li><code><b>Obrazac28</b></code>:
+			</li>
+<li><code><b>Obrazac29</b></code>:
+			</li>
+<li><code><b>Obrazac30</b></code>:
+			</li>
+<li><code><b>Merged</b></code>:
+			</li>
+</ul>
+<h3 id="type-data_field_type">
+					Simple type: data_field_type</h3><b>Description</b>: <br><b>Base type</b>: <code>xs:string</code><br><br><b>Restrictions:</b> Enumeration<ul>
+<li><code><b>Check Box</b></code>:
+			</li>
+<li><code><b>Text</b></code>:
+			</li>
+<li><code><b>Radio Button</b></code>:
+			</li>
+</ul>
+</body>
+</html>

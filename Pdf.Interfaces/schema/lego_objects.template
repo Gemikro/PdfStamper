@@ -1,0 +1,19 @@
+
+	
+////////////////////////////////////////////////////////////////////////////////////
+// This file was created via tool. 
+// Do not modify by hand, use tool to re-create it. 
+////////////////////////////////////////////////////////////////////////////////////
+	
+using System.Collections;
+using System.Data;
+using System.Data.SqlTypes;
+using System.Data.SqlClient;
+using System.Threading;
+using System.Xml;
+using GMI.Core;
+
+namespace PdfStamper.Handlers{
+	
+}
+	
