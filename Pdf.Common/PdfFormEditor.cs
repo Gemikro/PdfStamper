@@ -297,7 +297,7 @@ namespace Pdf.Common
                             //}
                          
                             string result = Convert.ToBase64String(File.ReadAllBytes(merged_document_path));
-                            return new response_item_type[] { new response_item_type() { pdf_template = template.Merged, data = result } };                           
+                            return new response_item_type[] { new response_item_type() { pdf_template = template.MergedContent, data = result } };                           
                         }
                         else {
                             List<response_item_type> items = new List<response_item_type>();

@@ -39,7 +39,7 @@
       <xs:enumeration value="Obrazac28"/>
       <xs:enumeration value="Obrazac29"/>
       <xs:enumeration value="Obrazac30"/>
-      <xs:enumeration value="Merged"/>
+      <xs:enumeration value="MergedContent"/>
     </xs:restriction>  
   </xs:simpleType>
 

@@ -183,7 +183,7 @@ namespace Pdf.Interfaces {
         Obrazac30,
         
         /// <remarks/>
-        Merged,
+        MergedContent,
     }
     
     /// <remarks/>
