@@ -66,10 +66,15 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Default.html" />
+    <Content Include="Deployment\PdfStamper.deploy-readme.txt" />
+    <Content Include="Deployment\PdfStamper.SetParameters.xml" />
+    <Content Include="Deployment\PdfStamper.SourceManifest.xml" />
     <Content Include="Global.asax" />
     <Content Include="Logs\PlaceHolder.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Deployment\PdfStamper.deploy.cmd" />
+    <Content Include="Deployment\PdfStamper.zip" />
     <None Include="Mappings\mapping.xml">
       <SubType>Designer</SubType>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -285,88 +290,88 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Binaries\Json50r6.zip" />
-    <Content Include="Templates\Template with tags\Template_finanskijski lizing izvod  str.1 do 3 T.pdf">
+    <Content Include="Templates\Tagged templates\Template_finanskijski lizing izvod  str.1 do 3 T.pdf">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Templates\Template with tags\Template_izmene finansijskog lizinga str.1 do 4 T.pdf">
+    <Content Include="Templates\Tagged templates\Template_izmene finansijskog lizinga str.1 do 4 T.pdf">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Templates\Template with tags\Template_izmene finansijskog prilog A1 T.pdf">
+    <Content Include="Templates\Tagged templates\Template_izmene finansijskog prilog A1 T.pdf">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Templates\Template with tags\Template_izmene finansijskog prilog A2 T.pdf">
+    <Content Include="Templates\Tagged templates\Template_izmene finansijskog prilog A2 T.pdf">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Templates\Template with tags\Template_izmene finansijskog prilog A3 T.pdf">
+    <Content Include="Templates\Tagged templates\Template_izmene finansijskog prilog A3 T.pdf">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Templates\Template with tags\Template_izmene finansijskog prilog A4 T.pdf">
+    <Content Include="Templates\Tagged templates\Template_izmene finansijskog prilog A4 T.pdf">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Templates\Template with tags\Template_izmene finansijskog prilog B1 T.pdf">
+    <Content Include="Templates\Tagged templates\Template_izmene finansijskog prilog B1 T.pdf">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Templates\Template with tags\Template_izmene finansijskog prilog B2 T.pdf">
+    <Content Include="Templates\Tagged templates\Template_izmene finansijskog prilog B2 T.pdf">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Templates\Template with tags\Template_izmene finansijskog prilog B3 T.pdf">
+    <Content Include="Templates\Tagged templates\Template_izmene finansijskog prilog B3 T.pdf">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Templates\Template with tags\Template_izmene finansijskog prilog B4 T.pdf">
+    <Content Include="Templates\Tagged templates\Template_izmene finansijskog prilog B4 T.pdf">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Templates\Template with tags\Template_izmene finansijskog prilog B5 T.pdf">
+    <Content Include="Templates\Tagged templates\Template_izmene finansijskog prilog B5 T.pdf">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Templates\Template with tags\Template_izmene finansijskog prilog B6 T.pdf">
+    <Content Include="Templates\Tagged templates\Template_izmene finansijskog prilog B6 T.pdf">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Templates\Template with tags\Template_izmene finansijskog prilog V1 T.pdf">
+    <Content Include="Templates\Tagged templates\Template_izmene finansijskog prilog V1 T.pdf">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Templates\Template with tags\Template_lizing  izvod-prilog A T.pdf">
+    <Content Include="Templates\Tagged templates\Template_lizing  izvod-prilog A T.pdf">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Templates\Template with tags\Template_lizing izvod-prilog B T.pdf">
+    <Content Include="Templates\Tagged templates\Template_lizing izvod-prilog B T.pdf">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Templates\Template with tags\Template_lizing izvod-prilog V T.pdf">
+    <Content Include="Templates\Tagged templates\Template_lizing izvod-prilog V T.pdf">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Templates\Template with tags\Template_upis finansijskog lizinga str.1 do 6 T.pdf">
+    <Content Include="Templates\Tagged templates\Template_upis finansijskog lizinga str.1 do 6 T.pdf">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Templates\Template with tags\Template_upis finansijskog prilog A1 T.pdf">
+    <Content Include="Templates\Tagged templates\Template_upis finansijskog prilog A1 T.pdf">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Templates\Template with tags\Template_upis finansijskog prilog A2 T.pdf">
+    <Content Include="Templates\Tagged templates\Template_upis finansijskog prilog A2 T.pdf">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Templates\Template with tags\Template_upis finansijskog prilog A3 T.pdf">
+    <Content Include="Templates\Tagged templates\Template_upis finansijskog prilog A3 T.pdf">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Templates\Template with tags\Template_upis finansijskog prilog A4 T.pdf">
+    <Content Include="Templates\Tagged templates\Template_upis finansijskog prilog A4 T.pdf">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Templates\Template with tags\Template_upis finansijskog prilog B1 T.pdf">
+    <Content Include="Templates\Tagged templates\Template_upis finansijskog prilog B1 T.pdf">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Templates\Template with tags\Template_upis finansijskog prilog B2 T.pdf">
+    <Content Include="Templates\Tagged templates\Template_upis finansijskog prilog B2 T.pdf">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Templates\Template with tags\Template_upis finansijskog prilog B3 T.pdf">
+    <Content Include="Templates\Tagged templates\Template_upis finansijskog prilog B3 T.pdf">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Templates\Template with tags\Template_upis finansijskog prilog B4 T.pdf">
+    <Content Include="Templates\Tagged templates\Template_upis finansijskog prilog B4 T.pdf">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Templates\Template with tags\Template_upis finansijskog prilog B5 T.pdf">
+    <Content Include="Templates\Tagged templates\Template_upis finansijskog prilog B5 T.pdf">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Templates\Template with tags\Template_upis finansijskog prilog B6 T.pdf">
+    <Content Include="Templates\Tagged templates\Template_upis finansijskog prilog B6 T.pdf">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Templates\Template with tags\Template_upis prestanka ugovora, brisnaje podataka o reg.ug. str.1 do 3. Tpdf.pdf">
+    <Content Include="Templates\Tagged templates\Template_upis prestanka ugovora, brisnaje podataka o reg.ug. str.1 do 3. T.pdf">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Templates\upis zabelezbe  lizing str.1 do 3 T.pdf" />
@@ -374,18 +379,19 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <None Include="Properties\PublishProfiles\PdfTest.pubxml" />
-    <Content Include="Templates\Template with tags\Template_upis finansijskog lizinga str.1 do 6 T1.pdf">
+    <Content Include="Templates\Tagged templates\Template_upis finansijskog lizinga str.1 do 6 T1.pdf">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Templates\upis finansijskog lizinga str.1 do 6 T1.pdf" />
-    <Content Include="Templates\Template with tags\Template_upis zabelezbe  lizing str.1 do 3 T.pdf">
+    <Content Include="Templates\Tagged templates\Template_upis zabelezbe  lizing str.1 do 3 T.pdf">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Templates\Template with tags\Template_brisanje zabelezbe lizing str.1 do 3 T.pdf">
+    <Content Include="Templates\Tagged templates\Template_brisanje zabelezbe lizing str.1 do 3 T.pdf">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Templates\Template_brisanje zabelezbe lizing str.1 do 3 T.pdf" />
     <Content Include="Templates\Template_upis zabelezbe  lizing str.1 do 3 T.pdf" />
+    <None Include="Properties\PublishProfiles\PublishWeb.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
