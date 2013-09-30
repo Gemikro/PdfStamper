@@ -177,6 +177,53 @@ namespace Pdf.Common
                     if (File.Exists(mapping_root_path))
                         mapping = File.ReadAllText(mapping_root_path).DeserializeXml2<mappings>();
 
+                    FileInfo mapping_path  = new FileInfo(mapping_root_path);
+                    string fox_helper_path = Path.Combine(mapping_path.DirectoryName, "Fox.txt");
+                    if (!File.Exists(fox_helper_path)) {
+                        StringBuilder b = new StringBuilder();
+                        b.Append(@"
+DIMENSION laArray[30,2]
+laArray[1,1] = 'Obrazac1'
+laArray[2,1] = 'Obrazac2'
+laArray[3,1] = 'Obrazac3'
+laArray[4,1] = 'Obrazac4'
+laArray[5,1] = 'Obrazac5'
+laArray[6,1] = 'Obrazac6'
+laArray[7,1] = 'Obrazac7'
+laArray[8,1] = 'Obrazac8'
+laArray[9,1] = 'Obrazac9'
+laArray[10,1] ='Obrazac10'
+laArray[11,1] = 'Obrazac11'
+laArray[12,1] = 'Obrazac12'
+laArray[13,1] = 'Obrazac13'
+laArray[14,1] = 'Obrazac14'
+laArray[15,1] = 'Obrazac15'
+laArray[16,1] = 'Obrazac16'
+laArray[17,1] = 'Obrazac17'
+laArray[18,1] = 'Obrazac18'
+laArray[19,1] = 'Obrazac19'
+laArray[20,1] ='Obrazac20'
+laArray[21,1] = 'Obrazac21'
+laArray[22,1] = 'Obrazac22'
+laArray[23,1] = 'Obrazac23'
+laArray[24,1] = 'Obrazac24'
+laArray[25,1] = 'Obrazac25'
+laArray[26,1] = 'Obrazac26'
+laArray[27,1] = 'Obrazac27'
+laArray[28,1] = 'Obrazac28'
+laArray[29,1] = 'Obrazac29'
+laArray[30,1] ='Obrazac30'
+");
+                        int current_index = -1;
+                        foreach (var item in mapping.mapping_item) {
+                            current_index = Int32.Parse(item.pdf_template.ToString().Replace("Obrazac", ""));
+                            string source_document_path = item.file_path.Replace("@root", template_root_path);
+                            FileInfo info = new FileInfo(source_document_path);
+                            string value = string.Format("laArray[{0},2] = '{1}'", current_index, info.Name.Replace(info.Extension,String.Empty));
+                            b.AppendLine(value);                            
+                        }
+                        File.WriteAllText(fox_helper_path,b.ToString());                            
+                    }
                     if (data.Rows.Count == 0) {
                         Logging.Singleton.WriteDebug("There is no data in the provided data table!");
 
@@ -265,7 +312,20 @@ namespace Pdf.Common
                                             string value = row[item.column_name].ToString();
 
                                             if (item.field_type == data_field_type.CheckBox) {
-                                                value = value == "True" ? "Yes" : "No";
+                                                int int_value = 0;
+                                                bool boolean_value = false;
+                                                if(Int32.TryParse(value, out int_value))
+                                                {
+                                                    value = int_value == 0? "No" : "Yes";
+                                                }
+                                                else if (Boolean.TryParse(value, out boolean_value))
+                                                {
+                                                    value = boolean_value == false? "No" : "Yes";
+                                                }
+                                                else
+                                                {
+                                                    throw new NotImplementedException(string.Format("Invalid Value [{0}] was provided for Check box type field!", value));
+                                                }
                                             }
                                             fields.SetField(key, value);
                                         }

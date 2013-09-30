@@ -67,7 +67,7 @@ namespace PdfStamper
 
                 response.response_items = PdfFormEditor.FillForm(request, Global.MappingRootPath, Global.TemplateRootPath, Global.OutputRootPath, data);
                 string response_string = response.SerializeXml();
-                Logging.Singleton.WriteDebug(response_string);
+                //Logging.Singleton.WriteDebug(response_string);
                 //string response_string = JsonConvert.SerializeObject(response);
                 return response_string;
             }
