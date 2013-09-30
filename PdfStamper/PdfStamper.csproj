@@ -76,6 +76,7 @@
     <Content Include="Deployment\PdfStamper.deploy.cmd" />
     <Content Include="Deployment\PdfStamper.zip" />
     <None Include="Mappings\mapping.xml" />
+    <Content Include="Mappings\Fox.txt" />
     <Content Include="Mappings\template_mapping.xml">
       <SubType>Designer</SubType>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
