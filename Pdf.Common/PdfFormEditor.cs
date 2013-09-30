@@ -236,6 +236,18 @@ namespace Pdf.Common
                             using (PdfStamper stamper = new PdfStamper(reader, new FileStream(destination_document_path, FileMode.Create))) {
                                 AcroFields fields = stamper.AcroFields;
 
+
+                                //Full path to the Unicode Arial file
+                                //string ARIALUNI_TFF = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Fonts), "ARIALUNI.TTF");
+
+                                //Create a base font object making sure to specify IDENTITY-H
+                                //BaseFont bf = BaseFont.CreateFont(ARIALUNI_TFF, BaseFont.IDENTITY_H, BaseFont.NOT_EMBEDDED);
+
+                                //Create a specific font object
+                                //Font f = new Font(bf, 12, Font.NORMAL);
+                                iTextSharp.text.pdf.BaseFont baseFont  = iTextSharp.text.pdf.BaseFont.CreateFont(@"c:\windows\fonts\arial.ttf","Windows-1250", true);
+
+                                fields.AddSubstitutionFont(baseFont);
                                 if (request.debug_mode) {
                                     foreach (var key in fields.Fields.Keys) {
                                         Logging.Singleton.WriteDebugFormat("Pdf field [{0}]. Data type [{1}]", key, fields.GetFieldType(key));
