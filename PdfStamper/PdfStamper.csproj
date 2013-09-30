@@ -65,18 +65,20 @@
   <ItemGroup>
     <Content Include="Default.html" />
     <Content Include="Deployment\PdfStamper.deploy-readme.txt" />
+    <Content Include="Deployment\PdfStamper.deploy.cmd" />
     <Content Include="Deployment\PdfStamper.SetParameters.xml" />
     <Content Include="Deployment\PdfStamper.SourceManifest.xml" />
+    <Content Include="Deployment\PdfStamper.zip" />
     <Content Include="Global.asax" />
     <Content Include="Logs\PlaceHolder.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Deployment\run.bat" />
     <Content Include="Deployment\acl.bat" />
-    <Content Include="Deployment\PdfStamper.deploy.cmd" />
-    <Content Include="Deployment\PdfStamper.zip" />
-    <None Include="Mappings\mapping.xml" />
     <Content Include="Mappings\Fox.txt" />
+    <Content Include="Mappings\mapping.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="Mappings\template_mapping.xml">
       <SubType>Designer</SubType>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
