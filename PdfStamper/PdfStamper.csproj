@@ -64,10 +64,17 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Default.html" />
+    <Content Include="Deployment\PdfStamper.deploy-readme.txt" />
+    <Content Include="Deployment\PdfStamper.SetParameters.xml" />
+    <Content Include="Deployment\PdfStamper.SourceManifest.xml" />
     <Content Include="Global.asax" />
     <Content Include="Logs\PlaceHolder.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Deployment\run.bat" />
+    <Content Include="Deployment\acl.bat" />
+    <Content Include="Deployment\PdfStamper.deploy.cmd" />
+    <Content Include="Deployment\PdfStamper.zip" />
     <None Include="Mappings\mapping.xml" />
     <Content Include="Mappings\template_mapping.xml">
       <SubType>Designer</SubType>
@@ -399,9 +406,7 @@
       <Name>Pdf.Interfaces</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Deployment\" />
-  </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

@@ -23,30 +23,30 @@ namespace PdfStamper
             OutputRootPath = Server.MapPath("~/Output");
             Logging.LogFileName = Path.Combine(Server.MapPath("~/Logs"), "PdfStamperLog");
 
-            string[] files = Directory.GetFiles(TemplateRootPath, "*.pdf");
-            string script_template_path = Path.Combine(TemplateRootPath, "Script_template.vbs");
+            //string[] files = Directory.GetFiles(TemplateRootPath, "*.pdf");
+            //string script_template_path = Path.Combine(TemplateRootPath, "Script_template.vbs");
 
-            foreach (string file in files) {
-                string script = File.ReadAllText(script_template_path);
-                FileInfo f = new FileInfo(file);
-                //string output_root = Path.Combine(TemplateRootPath, "Template with tags");
-                //string output_root = TemplateRootPath;
-                //string output_path = Path.Combine(output_root, String.Format("{0}", f.Name));
+            //foreach (string file in files) {
+            //    string script = File.ReadAllText(script_template_path);
+            //    FileInfo f = new FileInfo(file);
+            //    //string output_root = Path.Combine(TemplateRootPath, "Template with tags");
+            //    //string output_root = TemplateRootPath;
+            //    //string output_path = Path.Combine(output_root, String.Format("{0}", f.Name));
 
-                string input_path = String.Format("{0}", f.Name);
-                string output_path = String.Format("Template_{0}", f.Name);
-                //string output_path = Path.Combine(output_root, String.Format("Template_{0}",f.Name));
-                string script_path = Path.Combine(TemplateRootPath, String.Format("{0}_Script.vbs", f.Name));
+            //    string input_path = String.Format("{0}", f.Name);
+            //    string output_path = String.Format("Template_{0}", f.Name);
+            //    //string output_path = Path.Combine(output_root, String.Format("Template_{0}",f.Name));
+            //    string script_path = Path.Combine(TemplateRootPath, String.Format("{0}_Script.vbs", f.Name));
 
-                script = script.Replace("@input", input_path);
-                script = script.Replace("@output", output_path);
+            //    script = script.Replace("@input", input_path);
+            //    script = script.Replace("@output", output_path);
 
-                File.WriteAllText(script_path, script);
+            //    File.WriteAllText(script_path, script);
 
-                //Process.Start(script_path);
-            }
+            //    //Process.Start(script_path);
+            //}
 
-
+            Logging.Singleton.WriteDebug("Application started!");
             
         }
 
