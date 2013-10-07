@@ -338,6 +338,10 @@ namespace Utilities {
 
         private StringBuilder ListStack(out string sType)
         {
+            sType = string.Empty;
+            return new StringBuilder();
+            //ON RLRSWEBAAP1 this is not allowed!!!
+            /*
             StringBuilder sb = new StringBuilder();
             sType = "";
 
@@ -357,6 +361,7 @@ namespace Utilities {
             }
 
             return sb;
+            */
         }
 
         /// <summary>Writes debug message into log file - if one is specified.</summary>

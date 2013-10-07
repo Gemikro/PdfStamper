@@ -15,12 +15,14 @@ namespace PdfStamper
         public static string MappingRootPath { get; set; }
         public static string TemplateRootPath { get; set; }
         public static string OutputRootPath { get; set; }
+        public static string FontsRootPath { get; set; }
 
         protected void Application_Start(object sender, EventArgs e) {
 
             MappingRootPath = Path.Combine(Server.MapPath("~/Mappings"),"mapping.xml");
             TemplateRootPath = Server.MapPath("~/Templates");
             OutputRootPath = Server.MapPath("~/Output");
+            FontsRootPath = Server.MapPath("~/Fonts");
             Logging.LogFileName = Path.Combine(Server.MapPath("~/Logs"), "PdfStamperLog");
 
             //string[] files = Directory.GetFiles(TemplateRootPath, "*.pdf");
@@ -63,7 +65,14 @@ namespace PdfStamper
         }
 
         protected void Application_Error(object sender, EventArgs e) {
+            Logging.Singleton.WriteDebug("Application started!");
 
+            System.Web.HttpContext context = HttpContext.Current;
+            System.Exception ex = Context.Server.GetLastError();
+
+            Logging.Singleton.WriteDebug(Logging.CreateExceptionMessage(ex));
+
+            context.Server.ClearError();            
         }
 
         protected void Session_End(object sender, EventArgs e) {

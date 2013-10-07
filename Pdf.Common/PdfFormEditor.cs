@@ -169,7 +169,7 @@ namespace Pdf.Common
 
             return null;
         }
-        public static response_item_type[] FillForm(pdf_stamper_request request,string mapping_root_path,string template_root_path, string output_root_path, DataTable data) {
+        public static response_item_type[] FillForm(pdf_stamper_request request,string mapping_root_path,string template_root_path, string output_root_path, DataTable data, string fonts_root_path) {
             lock (_lock) {
                 try {
                     List<Item> items_with_path = new List<Item>();
@@ -257,6 +257,9 @@ laArray[30,1] ='Obrazac30'
                     else {
 
                         DataRow row = data.Rows[0];
+                        string id_pog = string.Empty;
+                        if (data.Columns.Contains("id_pog"))
+                            id_pog = row["id_pog"].ToString();
 
                         if (request.debug_mode) {
                             foreach (DataColumn column in data.Columns) {
@@ -271,7 +274,8 @@ laArray[30,1] ='Obrazac30'
                             FileInfo f = new FileInfo(source_document_path);
 
                             string destination_document_path = Path.Combine(output_root_path,
-                                String.Format("{0}_{1}{2}",
+                                String.Format("{0}_{1}_{2}{3}",
+                                id_pog.Replace("/","-").Trim(),
                                 f.Name.Replace(f.Extension, ""),
                                 DateTime.Now.ToFileTimeUtc().ToString(),
                                 f.Extension)
@@ -292,7 +296,7 @@ laArray[30,1] ='Obrazac30'
 
                                 //Create a specific font object
                                 //Font f = new Font(bf, 12, Font.NORMAL);
-                                iTextSharp.text.pdf.BaseFont baseFont  = iTextSharp.text.pdf.BaseFont.CreateFont(@"c:\windows\fonts\arial.ttf","Windows-1250", true);
+                                iTextSharp.text.pdf.BaseFont baseFont  = iTextSharp.text.pdf.BaseFont.CreateFont(Path.Combine(fonts_root_path,"arial.ttf"),"Windows-1250", true);
 
                                 fields.AddSubstitutionFont(baseFont);
                                 if (request.debug_mode) {
@@ -364,12 +368,15 @@ laArray[30,1] ='Obrazac30'
                         }
                         if (items_with_path.Count() == 1) {
                             string path = items_with_path.First().Path;
-                            string result = Convert.ToBase64String(File.ReadAllBytes(path));
+                            var bytes = File.ReadAllBytes(path);
+                            string result = Convert.ToBase64String(bytes);
+                            Logging.Singleton.WriteDebugFormat("Response lenght is {0} bytes", bytes.Length);
                             return new response_item_type[] { new response_item_type() { pdf_template = items_with_path.First().PdfTemplate, data = result } };
+                            //return new response_item_type[] { new response_item_type() { pdf_template = items_with_path.First().PdfTemplate, data = Convert.ToBase64String(new byte[] {1,2,3,4,5,6,7,8,9}) } };
                         }
                         else {
                             if (request.merge_output == true) {
-                                string merged_document_path = Path.Combine(output_root_path, String.Format("{0}_{1}{2}", "merged", DateTime.Now.ToFileTimeUtc().ToString(), ".pdf"));
+                                string merged_document_path = Path.Combine(output_root_path, String.Format("{0}_{1}{2}{3}", id_pog.Replace("/","-").Trim(), "merged", DateTime.Now.ToFileTimeUtc().ToString(), ".pdf"));
 
                                 //List<string> file_names = new List<string>();
                                 //foreach (var item in items_with_path) {
@@ -393,13 +400,19 @@ laArray[30,1] ='Obrazac30'
                                 //    stream.Close();
                                 //}
 
-                                string result = Convert.ToBase64String(File.ReadAllBytes(merged_document_path));
+                                var bytes = File.ReadAllBytes(merged_document_path);
+                                string result = Convert.ToBase64String(bytes);
+                                Logging.Singleton.WriteDebugFormat("Response lenght is {0} bytes", bytes.Length);                                
                                 return new response_item_type[] { new response_item_type() { pdf_template = template.MergedContent, data = result } };
                             }
                             else {
                                 List<response_item_type> items = new List<response_item_type>();
                                 foreach (var item in items_with_path) {
-                                    var temp = new response_item_type() { pdf_template = item.PdfTemplate, data = Convert.ToBase64String(File.ReadAllBytes(item.Path)) };
+                                    var bytes = File.ReadAllBytes(item.Path);
+                                    string result = Convert.ToBase64String(bytes);
+                                    Logging.Singleton.WriteDebugFormat("Response lenght is {0} bytes", bytes.Length);                                
+                                    var temp = new response_item_type() { pdf_template = item.PdfTemplate, data = result };
+                                    //var temp = new response_item_type() { pdf_template = item.PdfTemplate, data = Convert.ToBase64String(new byte[] {1,2,3,4,5,6,7,8,9}) };
                                     items.Add(temp);
                                 }
 

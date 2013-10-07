@@ -76,9 +76,7 @@
     <Content Include="Deployment\run.bat" />
     <Content Include="Deployment\acl.bat" />
     <Content Include="Mappings\Fox.txt" />
-    <Content Include="Mappings\mapping.xml">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
+    <Content Include="Mappings\mapping.xml" />
     <Content Include="Mappings\template_mapping.xml">
       <SubType>Designer</SubType>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -378,6 +376,10 @@
     <Content Include="Templates\brisanje zabelezbe lizing str.1 do 3 T.pdf">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="Fonts\arial.ttf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <None Include="Properties\PublishProfiles\Pdf2.pubxml" />
     <None Include="Properties\PublishProfiles\PdfTest.pubxml" />
     <Content Include="Templates\Tagged templates\Template_upis finansijskog lizinga str.1 do 6 T1.pdf">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

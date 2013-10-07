@@ -642,7 +642,7 @@
       <field_type>Check Box</field_type>
     </mapping>
     <mapping>
-      <column_name>pr_izmena_ugovora_menja</column_name>
+      <column_name>apr_izmena_ugovora_menja</column_name>
       <data_field>Check Box44</data_field>
       <field_type>Check Box</field_type>
     </mapping>
@@ -687,7 +687,7 @@
       <field_type>Check Box</field_type>
     </mapping>
     <mapping>
-      <column_name>pr_izmena_oprema_B2</column_name>
+      <column_name>apr_izmena_oprema_B2</column_name>
       <data_field>Check Box53</data_field>
       <field_type>Check Box</field_type>
     </mapping>
@@ -2072,7 +2072,7 @@
       <field_type>Text</field_type>
     </mapping>
     <mapping>
-      <column_name>pr_pod_fl_mesto</column_name>
+      <column_name>apr_pod_fl_mesto</column_name>
       <data_field>Text9</data_field>
       <field_type>Text</field_type>
     </mapping>
@@ -2112,7 +2112,7 @@
       <field_type>Text</field_type>
     </mapping>
     <mapping>
-      <column_name>pr_pod_pl_drz</column_name>
+      <column_name>apr_pod_pl_drz</column_name>
       <data_field>Text15.2</data_field>
       <field_type>Text</field_type>
     </mapping>
@@ -2137,7 +2137,7 @@
       <field_type>Text</field_type>
     </mapping>
     <mapping>
-      <column_name>pr_pot_apr_broj</column_name>
+      <column_name>apr_pot_apr_broj</column_name>
       <data_field>Text19</data_field>
       <field_type>Text</field_type>
     </mapping>
@@ -3486,7 +3486,7 @@
       <field_type>Text</field_type>
     </mapping>
     <mapping>
-      <column_name>pr_pod_fl_prezime</column_name>
+      <column_name>apr_pod_fl_prezime</column_name>
       <data_field>Text6</data_field>
       <field_type>Text</field_type>
     </mapping>
@@ -3506,7 +3506,7 @@
       <field_type>Text</field_type>
     </mapping>
     <mapping>
-      <column_name>pr_pod_fl_mesto</column_name>
+      <column_name>apr_pod_fl_mesto</column_name>
       <data_field>Text10</data_field>
       <field_type>Text</field_type>
     </mapping>
@@ -3536,7 +3536,7 @@
       <field_type>Text</field_type>
     </mapping>
     <mapping>
-      <column_name>Uapr_pod_pl_mb</column_name>
+      <column_name>apr_pod_pl_mb</column_name>
       <data_field>Text16</data_field>
       <field_type>Text</field_type>
     </mapping>
