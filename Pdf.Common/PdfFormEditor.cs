@@ -169,15 +169,17 @@ namespace Pdf.Common
 
             return null;
         }
-        public static response_item_type[] FillForm(pdf_stamper_request request,string mapping_root_path,string template_root_path, string output_root_path, DataTable data, string fonts_root_path) {
+        public static response_item_type[] FillForm(pdf_stamper_request request,string mapping_root_path,string template_root_path, string output_root_path, DataTable data, string fonts_root_path, bool force_unc) {
             lock (_lock) {
                 try {
+
                     List<Item> items_with_path = new List<Item>();
                     mappings mapping = new mappings();
                     if (File.Exists(mapping_root_path))
                         mapping = File.ReadAllText(mapping_root_path).DeserializeXml2<mappings>();
 
                     FileInfo mapping_path  = new FileInfo(mapping_root_path);
+                    /*
                     string fox_helper_path = Path.Combine(mapping_path.DirectoryName, "Fox.txt");
                     if (!File.Exists(fox_helper_path)) {
                         StringBuilder b = new StringBuilder();
@@ -222,8 +224,10 @@ laArray[30,1] ='Obrazac30'
                             string value = string.Format("laArray[{0},2] = '{1}'", current_index, info.Name.Replace(info.Extension,String.Empty));
                             b.AppendLine(value);                            
                         }
-                        File.WriteAllText(fox_helper_path,b.ToString());                            
+                        File.WriteAllText(fox_helper_path,b.ToString());     
+                     
                     }
+                    */
                     if (data.Rows.Count == 0) {
                         Logging.Singleton.WriteDebug("There is no data in the provided data table!");
 
@@ -243,12 +247,12 @@ laArray[30,1] ='Obrazac30'
                             merge.EnablePagination = false;
                             merge.Merge(merged_document_path);
                             string result = Convert.ToBase64String(File.ReadAllBytes(merged_document_path));
-                            return new response_item_type[] { new response_item_type() { pdf_template = template.MergedContent, data = result } };
+                            return new response_item_type[] { new response_item_type() { pdf_template = template.MergedContent, data = force_unc? string.Empty : result, unc_path=merged_document_path } };
                         }
                         else {
                             List<response_item_type> items = new List<response_item_type>();
                             foreach (var item in items_with_path) {
-                                var temp = new response_item_type() { pdf_template = item.PdfTemplate, data = Convert.ToBase64String(File.ReadAllBytes(item.Path)) };
+                                var temp = new response_item_type() { pdf_template = item.PdfTemplate, data = force_unc ? string.Empty : Convert.ToBase64String(File.ReadAllBytes(item.Path)), unc_path = item.Path };
                                 items.Add(temp);
                             }
                             return items.ToArray();
@@ -371,7 +375,7 @@ laArray[30,1] ='Obrazac30'
                             var bytes = File.ReadAllBytes(path);
                             string result = Convert.ToBase64String(bytes);
                             Logging.Singleton.WriteDebugFormat("Response lenght is {0} bytes", bytes.Length);
-                            return new response_item_type[] { new response_item_type() { pdf_template = items_with_path.First().PdfTemplate, data = result } };
+                            return new response_item_type[] { new response_item_type() { pdf_template = items_with_path.First().PdfTemplate, data = force_unc ? string.Empty : result, unc_path = path } };
                             //return new response_item_type[] { new response_item_type() { pdf_template = items_with_path.First().PdfTemplate, data = Convert.ToBase64String(new byte[] {1,2,3,4,5,6,7,8,9}) } };
                         }
                         else {
@@ -402,16 +406,16 @@ laArray[30,1] ='Obrazac30'
 
                                 var bytes = File.ReadAllBytes(merged_document_path);
                                 string result = Convert.ToBase64String(bytes);
-                                Logging.Singleton.WriteDebugFormat("Response lenght is {0} bytes", bytes.Length);                                
-                                return new response_item_type[] { new response_item_type() { pdf_template = template.MergedContent, data = result } };
+                                Logging.Singleton.WriteDebugFormat("Response lenght is {0} bytes", bytes.Length);
+                                return new response_item_type[] { new response_item_type() { pdf_template = template.MergedContent, data = force_unc ? string.Empty : result, unc_path = merged_document_path } };
                             }
                             else {
                                 List<response_item_type> items = new List<response_item_type>();
                                 foreach (var item in items_with_path) {
                                     var bytes = File.ReadAllBytes(item.Path);
                                     string result = Convert.ToBase64String(bytes);
-                                    Logging.Singleton.WriteDebugFormat("Response lenght is {0} bytes", bytes.Length);                                
-                                    var temp = new response_item_type() { pdf_template = item.PdfTemplate, data = result };
+                                    Logging.Singleton.WriteDebugFormat("Response lenght is {0} bytes", bytes.Length);
+                                    var temp = new response_item_type() { pdf_template = item.PdfTemplate, data = force_unc ? string.Empty : result, unc_path = item.Path };
                                     //var temp = new response_item_type() { pdf_template = item.PdfTemplate, data = Convert.ToBase64String(new byte[] {1,2,3,4,5,6,7,8,9}) };
                                     items.Add(temp);
                                 }

@@ -36,8 +36,14 @@ namespace PdfStamper
 
                 DataTable data = JsonConvert.DeserializeObject<DataTable>(request.data, new Serialization.DataTableConverter());
                 //DataTable data = request.data.DeserializeXml2<DataTable>();
+                string output_root_path = Global.OutputRootPath;
+                bool force_unc = false;
+                if (request.output_root_path != string.Empty) {
+                    output_root_path = request.output_root_path;
+                    force_unc = true;
+                }
 
-                response.response_items = PdfFormEditor.FillForm(request, Global.MappingRootPath, Global.TemplateRootPath, Global.OutputRootPath, data, Global.FontsRootPath);
+                response.response_items = PdfFormEditor.FillForm(request, Global.MappingRootPath, Global.TemplateRootPath, output_root_path, data, Global.FontsRootPath, force_unc);
                 //string response_string = response.SerializeXml();
                 string response_string = JsonConvert.SerializeObject(response);
                 return response_string;
@@ -64,8 +70,14 @@ namespace PdfStamper
 
 
                 DataTable data = request.data.DeserializeXml2<DataTable>();
+                string output_root_path = Global.OutputRootPath;
+                bool force_unc = false;
+                if (request.output_root_path != string.Empty) {
+                    output_root_path = request.output_root_path;
+                    force_unc = true;
+                }
 
-                response.response_items = PdfFormEditor.FillForm(request, Global.MappingRootPath, Global.TemplateRootPath, Global.OutputRootPath, data, Global.FontsRootPath);
+                response.response_items = PdfFormEditor.FillForm(request, Global.MappingRootPath, Global.TemplateRootPath, output_root_path, data, Global.FontsRootPath, force_unc);
                 string response_string = response.SerializeXml();
                 //Logging.Singleton.WriteDebug(response_string);
                 //string response_string = JsonConvert.SerializeObject(response);

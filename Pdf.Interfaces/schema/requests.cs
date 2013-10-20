@@ -34,6 +34,8 @@ namespace Pdf.Interfaces {
         
         private bool merge_outputField;
         
+        private string output_root_pathField;
+        
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute("pdf_template_list")]
         public template[] pdf_template_list {
@@ -82,6 +84,16 @@ namespace Pdf.Interfaces {
             }
             set {
                 this.merge_outputField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string output_root_path {
+            get {
+                return this.output_root_pathField;
+            }
+            set {
+                this.output_root_pathField = value;
             }
         }
     }
@@ -305,6 +317,8 @@ namespace Pdf.Interfaces {
         
         private string dataField;
         
+        private string unc_pathField;
+        
         private template pdf_templateField;
         
         /// <remarks/>
@@ -314,6 +328,16 @@ namespace Pdf.Interfaces {
             }
             set {
                 this.dataField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string unc_path {
+            get {
+                return this.unc_pathField;
+            }
+            set {
+                this.unc_pathField = value;
             }
         }
         

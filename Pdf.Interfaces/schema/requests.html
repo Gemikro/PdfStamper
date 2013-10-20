@@ -105,6 +105,14 @@ h3{ font-size: 12pt; font-weight: bold; color: #4F81BD; }
 <td><span>If several templates are rendered, should we merge the output or not?</span> 
 					</td>
 </tr>
+      <tr>
+<td>output_root_path</td>
+<td><code>xs:string</code></td>
+<td>1</td>
+<td>1</td>
+<td><span>Client can request to get the Unc path of the rendered response. If empty, base64 encoded content is returned</span> 
+					</td>
+</tr>
     </table>
 <h3 id="element-type-pdf_stamper_response">
 						Element: pdf_stamper_response</h3>
@@ -253,6 +261,14 @@ h3{ font-size: 12pt; font-weight: bold; color: #4F81BD; }
 <td>1</td>
 <td>1</td>
 <td><span>Base 64 encoded Pdf form.</span> 
+					</td>
+</tr>
+      <tr>
+<td>unc_path</td>
+<td><code>xs:string</code></td>
+<td>1</td>
+<td>1</td>
+<td><span>Unc path to the rendered pdf document.</span> 
 					</td>
 </tr>
         <tr>

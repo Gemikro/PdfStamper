@@ -101,6 +101,11 @@
             <xs:documentation>Base 64 encoded Pdf form.</xs:documentation>
           </xs:annotation>
         </xs:element>
+      <xs:element name="unc_path" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>Unc path to the rendered pdf document.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
         <xs:element name="pdf_template" type="template">
           <xs:annotation>
             <xs:documentation>Template that was used for rendering output</xs:documentation>
@@ -146,6 +151,11 @@
       <xs:element name="merge_output" type="xs:boolean">
         <xs:annotation>
           <xs:documentation>If several templates are rendered, should we merge the output or not?</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="output_root_path" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>Client can request to get the Unc path of the rendered response. If empty, base64 encoded content is returned</xs:documentation>
         </xs:annotation>
       </xs:element>
     </xs:sequence>

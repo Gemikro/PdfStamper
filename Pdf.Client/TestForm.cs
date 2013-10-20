@@ -42,13 +42,18 @@ namespace Pdf.Client
                 request.read_only = false;
                 request.debug_mode = false;
                 request.merge_output = true;
+                request.output_root_path = @"C:\inetpub\wwwroot\";
 
                 string request_string = request.SerializeXml();
                 //string request_string = JsonConvert.SerializeObject(request);
 
                 string response_string = client.ProcessRequest(request_string);
                 pdf_stamper_response response = response_string.DeserializeXml2<pdf_stamper_response>();
-                ProcessResponse(response);                
+                if(request.output_root_path!=string.Empty)
+                    ProcessResponse2(response);       
+                else
+                    ProcessResponse(response);       
+         
             }
             catch (Exception ex) {
                 string message = Logging.CreateExceptionMessage(ex);
@@ -100,6 +105,13 @@ namespace Pdf.Client
                     }
                 }
             }
+        }
+        private static void ProcessResponse2(pdf_stamper_response response) {
+            if (response.response_items != null && response.response_items.Count() > 0) {
+                foreach (var item in response.response_items) {                    
+                        Process.Start(item.unc_path);
+                    }
+                }
         }
         private DataTable GetTestData() { 
             using(SqlConnection c = new SqlConnection(Properties.Settings.Default.Db))
